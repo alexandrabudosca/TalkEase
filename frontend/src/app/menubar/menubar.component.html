@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <img class="logo" src="/assets/logo.png">
+  <div class="signup">
+    <div *ngIf="authService.isLoggedIn()" class="flame">
+      <img class="lightning-image" src="/assets/flame.jpg">
+      {{ data?.loginStreak }} zile în serie
+    </div>
+    <button *ngIf="!authService.isLoggedIn()" routerLink="/login">Autentificare</button>
+    <button *ngIf="!authService.isLoggedIn()" routerLink="/signup">Înregistrare</button>
+    <button *ngIf="authService.isLoggedIn()" (click)="logout()" >Delogare</button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened="true">
+    <div class="sidenav">
+      <img src="/assets/pic2.jpg">
+
+      <div *ngIf="authService.isLoggedIn()" class="lightning">
+        <img class="lightning-image" src="/assets/lightning.jpg">
+        {{ data?.score }} XP
+      </div>
+
+      <button class="home-prof" [disabled]="!authService.isLoggedIn()" routerLink="/">Acasă</button>
+      <button class="home-prof" [disabled]="!authService.isLoggedIn()" routerLink="/profil">Profil</button>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

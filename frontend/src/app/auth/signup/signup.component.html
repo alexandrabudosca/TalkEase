@@ -1,0 +1,19 @@
+<form class="signup-container" (ngSubmit)="signup()">
+  <h2>Înregistrare</h2>
+
+  <div>
+    <input placeholder="Nume" [(ngModel)]="name" name="name" required>
+  </div>
+
+  <div>
+    <input placeholder="Email" type="email" [(ngModel)]="email" name="email" required>
+  </div>
+
+  <div>
+    <input placeholder="Parolă" type="password" [(ngModel)]="password" name="password" required>
+  </div>
+
+  <div *ngIf="fail">Completează toate câmpurile</div>
+
+  <button>Creare cont</button>
+</form>

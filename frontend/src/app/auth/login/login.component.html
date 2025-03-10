@@ -1,0 +1,15 @@
+<form class="signup-container" (ngSubmit)="login()">
+  <h2>Autentificare</h2>
+
+  <div>
+    <input placeholder="Email" type="email" [(ngModel)]="email" name="email" required>
+  </div>
+
+  <div>
+    <input placeholder="Parolă" type="password" [(ngModel)]="password" name="password" required>
+  </div>
+
+  <div *ngIf="fail">Email sau parolă incorecte</div>
+
+  <button>Conectare</button>
+</form>

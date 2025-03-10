@@ -1,0 +1,62 @@
+.chapters {
+  display: grid;
+  grid-template-columns: 550px 550px;
+  gap: 30px 50px;
+  font-family: Comfortaa;
+  font-weight: bold;
+}
+
+.chapter {
+  height: 220px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.chapter1 {
+  background-color: #30d5c8;
+}
+
+.chapter2 {
+  background-color: #80daeb;
+}
+
+.chapter3 {
+  background-color: #89cff0;
+}
+
+.chapter4 {
+  background-color: #96ded1;
+}
+
+.chapter5 {
+  background-color: #80daeb;
+}
+
+.chapter6 {
+  background-color: #30d5c8;
+}
+
+span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+button {
+  width: 200px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 50px;
+  background-color: white;
+  margin-left: 30px;
+  font-family: Comfortaa;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #f2f3f4;
+  cursor: pointer;
+}

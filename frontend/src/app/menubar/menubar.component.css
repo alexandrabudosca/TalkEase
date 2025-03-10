@@ -1,0 +1,89 @@
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 249px;
+  height: 65px;
+  width: 1300px;
+  border-bottom: 2px solid #dcdcdc;
+}
+
+.logo {
+  width: 150px;
+}
+
+mat-sidenav-container {
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+  position: fixed;
+  border-right: 2px solid #dcdcdc;
+  width: 250px;
+}
+
+mat-sidenav-content {
+  left: 50px;
+  width: 1200px;
+}
+
+mat-sidenav-content::-webkit-scrollbar {
+  display: none;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+img {
+  width: 170px;
+}
+
+.lightning {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lightning-image {
+  width: 35px;
+}
+
+.flame {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: #bcedf4;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 40px;
+
+  font-family: Comfortaa;
+  font-weight: bold;
+}
+
+.home-prof {
+  width: 120px;
+}
+
+button:hover {
+  background-color: #b9f2ff;
+  cursor: pointer;
+}
+
+.signup {
+  position: absolute;
+  right: 100px;
+  display: flex;
+  gap: 10px;
+}

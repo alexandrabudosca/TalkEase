@@ -1,0 +1,100 @@
+<div *ngIf="!choose" class="lessonsCategory">
+  <div [class.pressedCategory]="category1" class="lesson">
+    <span class="category-title">Hello and Goodbye</span>
+    <button mat-button class="category-button" (click)="print1()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category2" class="lesson">
+    <span class="category-title">People</span>
+    <button mat-button class="category-button" (click)="print2()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category3" class="lesson">
+    <span class="category-title">Family</span>
+    <button mat-button class="category-button" (click)="print3()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category4" class="lesson">
+    <span class="category-title">Colors</span>
+    <button mat-button class="category-button" (click)="print4()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category5" class="lesson">
+    <span class="category-title">The body</span>
+    <button mat-button class="category-button" (click)="print5()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category6" class="lesson">
+    <span class="category-title">The head and face</span>
+    <button mat-button class="category-button" (click)="print6()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category7" class="lesson">
+    <span class="category-title">Clothes and shoes</span>
+    <button mat-button class="category-button" (click)="print7()">Alege</button>
+  </div>
+  <div [class.pressedCategory]="category8" class="lesson">
+    <span class="category-title">Animals</span>
+    <button mat-button class="category-button" (click)="print8()">Alege</button>
+  </div>
+  <button class="continua-button" (click)="continua()">CONTINUĂ</button>
+</div>
+
+<div *ngIf="choose">
+  <div class="lessons" *ngIf="!finished">
+  <h2 *ngIf="!isSpeech">Alege varianta corectă</h2>
+  <h2 *ngIf="isSpeech">Rostește ce auzi</h2>
+
+  <div class="expression">
+    <img src="/assets/assistant.jpg" *ngIf="!correctAnswer">
+    <img src="/assets/happy_assistant.jpg" *ngIf="correctAnswer">
+
+    <div class="question" *ngIf="!isSound">
+      <button mat-button class="speech-button" *ngIf="isSpeech" (click)="listen(data[currentQuestion]?.speech)">
+        <mat-icon>volume_up</mat-icon>
+      </button>
+      <span class="speech-question">{{ data[currentQuestion]?.question }}</span>
+    </div>
+
+    <button mat-button class="listen-button" *ngIf="isSound" (click)="listen(data[currentQuestion]?.question)">
+      <mat-icon>volume_up</mat-icon>
+    </button>
+
+    <span class="score">{{ score }} XP </span>
+  </div>
+
+  <div *ngIf="!isSpeech">
+    <div class="options">
+      <button mat-button [class.pressed]="buttonAPressed" (click)="checkPressedA()">{{ data[currentQuestion]?.options[0] }}</button>
+      <button mat-button [class.pressed]="buttonBPressed" (click)="checkPressedB()">{{ data[currentQuestion]?.options[1] }}</button>
+      <button mat-button [class.pressed]="buttonCPressed" (click)="checkPressedC()">{{ data[currentQuestion]?.options[2] }}</button>
+    </div>
+
+    <button mat-button class="check-button" *ngIf="check" (click)="checkAnswer(data[currentQuestion]?.correctOption)">VERIFICĂ</button>
+  </div>
+
+  <div class="options" *ngIf="isSpeech">
+    <button [class.pressed]="speechStartButtonPressed" (click)="startRecognition()">Start</button>
+    <button [class.pressed]="speechStopButtonPressed" (click)="stopRecognition(data[currentQuestion]?.question)">Stop</button>
+  </div>
+
+  <div class="check-div">
+    <img src="/assets/correct.jpg" class="answer-logo" *ngIf="correctAnswer">
+    <span class="correct" *ngIf="correctAnswer">CORECT!</span>
+
+    <img src="/assets/wrong.jpg" class="answer-logo" *ngIf="wrongAnswer">
+    <span class="wrong" *ngIf="wrongAnswer">
+      <span *ngIf="!isSpeech">Soluția corectă:</span>
+      <span *ngIf="isSpeech">Ai spus:</span>
+      <br> {{ data[currentQuestion]?.options[data[currentQuestion]?.correctOption] }}
+      <span *ngIf="isSpeech">{{ transcript }}</span>
+    </span>
+
+    <button mat-button class="next-button" [class.correct-button]="correctAnswer" [class.wrong-button]="wrongAnswer" *ngIf="!check" (click)="nextQuestion()">CONTINUĂ</button>
+  </div>
+
+</div>
+
+<mat-card *ngIf="finished">
+  <br>
+  <h2>Lecție finalizată!</h2>
+  <img src="../../assets/final_assistant.jpg">
+  <h2>Scor: {{ score }} XP</h2>
+  <br>
+  <button mat-button class="finished-button" (click)="finishQuiz()">CONTINUĂ</button>
+</mat-card>
+</div>

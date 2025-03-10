@@ -1,0 +1,45 @@
+.signup-container {
+  width: 400px;
+  height: 350px;
+  border: 4px solid #80daeb;
+
+  position: absolute;
+  left: 30%;
+  top: 70px;
+
+  font-family: Comfortaa;
+  font-weight: bold;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  padding: 8px;
+}
+
+button {
+  width: 130px;
+  height: 50px;
+  padding: 15px;
+  background-color: white;
+
+  border: 3px solid #80daeb;
+  border-radius: 15px;
+  font-family: Comfortaa;
+  font-weight: bold;
+  box-shadow: 0px 3px 0px 0px #80daeb;
+
+  margin-bottom: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0px 3px 0px 0px white;
+}
